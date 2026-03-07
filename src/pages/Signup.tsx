@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Zap, Store, Bike, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 const Signup = () => {
   const [searchParams] = useSearchParams();
@@ -20,15 +21,28 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { signUp } = useAuth();
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (password.length < 6) {
+      toast({ title: "Senha muito curta", description: "Mínimo de 6 caracteres.", variant: "destructive" });
+      return;
+    }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({ title: "Conta criada!", description: "Bem-vindo ao EntregaJá." });
-      navigate(userType === "motoboy" ? "/motoboy" : "/restaurant");
-    }, 800);
+    const { error } = await signUp(email, password, { name, phone, user_type: userType });
+    setLoading(false);
+
+    if (error) {
+      toast({ title: "Erro ao criar conta", description: error.message, variant: "destructive" });
+      return;
+    }
+
+    toast({
+      title: "Conta criada!",
+      description: "Verifique seu e-mail para confirmar o cadastro.",
+    });
+    navigate("/login");
   };
 
   return (

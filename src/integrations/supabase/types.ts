@@ -14,7 +14,117 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      deliveries: {
+        Row: {
+          created_at: string
+          customer_name: string
+          delivery_address: string
+          distance: string | null
+          estimated_time: string | null
+          fee: number
+          id: string
+          items: string
+          motoboy_id: string | null
+          pickup_address: string
+          restaurant_id: string
+          status: Database["public"]["Enums"]["delivery_status"]
+          updated_at: string
+          value: number
+        }
+        Insert: {
+          created_at?: string
+          customer_name: string
+          delivery_address: string
+          distance?: string | null
+          estimated_time?: string | null
+          fee: number
+          id?: string
+          items: string
+          motoboy_id?: string | null
+          pickup_address: string
+          restaurant_id: string
+          status?: Database["public"]["Enums"]["delivery_status"]
+          updated_at?: string
+          value: number
+        }
+        Update: {
+          created_at?: string
+          customer_name?: string
+          delivery_address?: string
+          distance?: string | null
+          estimated_time?: string | null
+          fee?: number
+          id?: string
+          items?: string
+          motoboy_id?: string | null
+          pickup_address?: string
+          restaurant_id?: string
+          status?: Database["public"]["Enums"]["delivery_status"]
+          updated_at?: string
+          value?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deliveries_motoboy_id_fkey"
+            columns: ["motoboy_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deliveries_restaurant_id_fkey"
+            columns: ["restaurant_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          phone: string | null
+          rating: number | null
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          name: string
+          phone?: string | null
+          rating?: number | null
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          rating?: number | null
+          user_type?: Database["public"]["Enums"]["user_type"]
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +133,9 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
+      delivery_status: "pending" | "accepted" | "collected" | "delivered"
+      user_type: "restaurant" | "motoboy"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +262,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+      delivery_status: ["pending", "accepted", "collected", "delivered"],
+      user_type: ["restaurant", "motoboy"],
+    },
   },
 } as const

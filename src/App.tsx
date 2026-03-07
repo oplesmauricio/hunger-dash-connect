@@ -2,7 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -14,22 +16,33 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AuthRedirect = ({ children }: { children: React.ReactNode }) => {
+  const { user, profile, loading } = useAuth();
+  if (loading) return null;
+  if (user && profile) {
+    return <Navigate to={profile.user_type === "motoboy" ? "/motoboy" : "/restaurant"} replace />;
+  }
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/restaurant" element={<RestaurantDashboard />} />
-          <Route path="/restaurant/new-delivery" element={<NewDelivery />} />
-          <Route path="/motoboy" element={<MotoboyDashboard />} />
-          <Route path="/delivery/:id" element={<DeliveryDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<AuthRedirect><Login /></AuthRedirect>} />
+            <Route path="/signup" element={<AuthRedirect><Signup /></AuthRedirect>} />
+            <Route path="/restaurant" element={<ProtectedRoute requiredType="restaurant"><RestaurantDashboard /></ProtectedRoute>} />
+            <Route path="/restaurant/new-delivery" element={<ProtectedRoute requiredType="restaurant"><NewDelivery /></ProtectedRoute>} />
+            <Route path="/motoboy" element={<ProtectedRoute requiredType="motoboy"><MotoboyDashboard /></ProtectedRoute>} />
+            <Route path="/delivery/:id" element={<ProtectedRoute><DeliveryDetail /></ProtectedRoute>} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

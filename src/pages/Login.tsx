@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Zap, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,20 +15,21 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { signIn } = useAuth();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      // Mock: detect user type from email
-      if (email.includes("motoboy")) {
-        navigate("/motoboy");
-      } else {
-        navigate("/restaurant");
-      }
-      toast({ title: "Login realizado!", description: "Bem-vindo de volta." });
-    }, 800);
+    const { error } = await signIn(email, password);
+    setLoading(false);
+
+    if (error) {
+      toast({ title: "Erro ao entrar", description: error.message, variant: "destructive" });
+      return;
+    }
+
+    toast({ title: "Login realizado!", description: "Bem-vindo de volta." });
+    // Navigation will be handled by auth state change + profile redirect
   };
 
   return (

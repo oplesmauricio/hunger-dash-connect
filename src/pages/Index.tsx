@@ -198,9 +198,9 @@ const Index = () => {
             <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
               <Zap className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-foreground">EntregaJá</span>
+            <span className="font-semibold text-foreground">Rapiggo</span>
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 EntregaJá. Todos os direitos reservados.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Rapiggo. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

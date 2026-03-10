@@ -14,7 +14,7 @@ const Index = () => {
               <Zap className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold tracking-tight" style={{ fontFamily: 'Space Grotesk' }}>
-              EntregaJá
+              Rapiggo
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -123,7 +123,7 @@ const Index = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: 'Space Grotesk' }}>
-              Por que escolher a EntregaJá?
+              Por que escolher a Rapiggo?
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Tecnologia simples e eficiente para conectar quem precisa entregar com quem quer entregar.
@@ -198,9 +198,9 @@ const Index = () => {
             <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">
               <Zap className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-foreground">EntregaJá</span>
+            <span className="font-semibold text-foreground">Rapiggo</span>
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 EntregaJá. Todos os direitos reservados.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Rapiggo. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

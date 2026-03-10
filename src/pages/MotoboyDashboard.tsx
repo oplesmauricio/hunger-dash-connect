@@ -99,7 +99,7 @@ const MotoboyDashboard = () => {
               <Zap className="w-5 h-5 text-primary-foreground" />
             </div>
             <div>
-              <span className="font-bold text-foreground" style={{ fontFamily: 'Space Grotesk' }}>EntregaJá</span>
+              <span className="font-bold text-foreground" style={{ fontFamily: 'Space Grotesk' }}>Rapiggo</span>
               <span className="text-xs text-muted-foreground ml-2 bg-muted px-2 py-0.5 rounded-full">Motoboy</span>
             </div>
           </div>

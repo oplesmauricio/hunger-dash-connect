@@ -123,7 +123,7 @@ const Index = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: 'Space Grotesk' }}>
-              Por que escolher a EntregaJá?
+              Por que escolher a Rapiggo?
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Tecnologia simples e eficiente para conectar quem precisa entregar com quem quer entregar.

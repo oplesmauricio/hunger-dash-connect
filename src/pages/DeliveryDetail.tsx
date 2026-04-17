@@ -92,13 +92,17 @@ const DeliveryDetail = () => {
     if (nextIndex >= statusOrder.length) return;
 
     const nextStatus = statusOrder[nextIndex];
-    const updateData: Record<string, unknown> = {
+    const updateData: {
+      status: DeliveryStatus;
+      updated_at: string;
+      motoboy_id?: string;
+    } = {
       status: nextStatus,
       updated_at: new Date().toISOString(),
     };
 
-    if (nextStatus === "accepted") {
-      updateData.motoboy_id = user?.id;
+    if (nextStatus === "accepted" && user?.id) {
+      updateData.motoboy_id = user.id;
     }
 
     const { error } = await supabase

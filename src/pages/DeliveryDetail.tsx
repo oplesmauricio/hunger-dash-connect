@@ -205,7 +205,7 @@ const DeliveryDetail = () => {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <Card>
             <CardContent className="p-4 text-center">
               <DollarSign className="w-5 h-5 text-primary mx-auto mb-1" />
@@ -222,9 +222,16 @@ const DeliveryDetail = () => {
           </Card>
           <Card>
             <CardContent className="p-4 text-center">
-              <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
+              <MapPin className="w-5 h-5 text-primary mx-auto mb-1" />
               <p className="text-xs text-muted-foreground">Distância</p>
               <p className="font-bold text-foreground">{delivery.distance || "—"}</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4 text-center">
+              <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
+              <p className="text-xs text-muted-foreground">Tempo estimado</p>
+              <p className="font-bold text-foreground">{delivery.estimated_time || "—"}</p>
             </CardContent>
           </Card>
         </div>

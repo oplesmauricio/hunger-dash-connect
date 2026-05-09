@@ -45,7 +45,7 @@ const NewDelivery = () => {
       return;
     }
 
-    toast({ title: "Entrega publicada!", description: "Motoboys serão notificados." });
+    toast({ title: "Entrega publicada!", description: "Entregadores serão notificados." });
     navigate("/restaurant");
   };
 
@@ -110,7 +110,7 @@ const NewDelivery = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                <Label>Valor oferecido ao motoboy (R$)</Label>
+                <Label>Valor oferecido ao entregador (R$)</Label>
                 <Input type="number" step="0.50" placeholder="8.50" value={fee} onChange={e => setFee(e.target.value)} required />
               </div>
             </CardContent>

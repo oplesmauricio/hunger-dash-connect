@@ -77,7 +77,7 @@ const Signup = () => {
             <form onSubmit={handleSignup} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">
-                  {userType === "restaurant" ? "Nome do restaurante" : "Nome completo"}
+                  {userType === "restaurant" ? "Nome da empresa" : "Nome completo"}
                 </Label>
                 <Input
                   id="name"

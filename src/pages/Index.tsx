@@ -42,23 +42,23 @@ const Index = () => {
                 Entregas rápidas e confiáveis
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-6" style={{ fontFamily: 'Space Grotesk' }}>
-                Conecte seu restaurante aos
-                <span className="text-primary"> melhores motoboys</span>
+                Conecte sua empresa aos
+                <span className="text-primary"> melhores entregadores</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Plataforma que conecta restaurantes a motoboys autônomos para entregas rápidas, seguras e com o melhor custo-benefício.
+                Plataforma que conecta empresas a entregadores autônomos para entregas rápidas, seguras e com o melhor custo-benefício.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/signup?type=restaurant">
                   <Button size="lg" className="w-full sm:w-auto gap-2 text-base px-8">
                     <Store className="w-5 h-5" />
-                    Sou Restaurante
+                    Sou Empresa
                   </Button>
                 </Link>
                 <Link to="/signup?type=motoboy">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base px-8">
                     <Bike className="w-5 h-5" />
-                    Sou Motoboy
+                    Sou Entregador
                   </Button>
                 </Link>
               </div>
@@ -132,12 +132,12 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Zap, title: "Entregas em minutos", desc: "Motoboys próximos recebem suas entregas instantaneamente." },
-              { icon: MapPin, title: "Rastreamento em tempo real", desc: "Acompanhe cada entrega do restaurante até o cliente." },
-              { icon: Shield, title: "Seguro e confiável", desc: "Motoboys verificados e avaliados pela comunidade." },
+              { icon: Zap, title: "Entregas em minutos", desc: "Entregadores próximos recebem suas entregas instantaneamente." },
+              { icon: MapPin, title: "Rastreamento em tempo real", desc: "Acompanhe cada entrega da empresa até o cliente." },
+              { icon: Shield, title: "Seguro e confiável", desc: "Entregadores verificados e avaliados pela comunidade." },
               { icon: Clock, title: "Disponível 24/7", desc: "Entregas a qualquer hora do dia ou da noite." },
               { icon: Store, title: "Painel completo", desc: "Dashboard intuitivo para gerenciar todas as entregas." },
-              { icon: Bike, title: "Ganhos flexíveis", desc: "Motoboys escolhem quando e quanto querem trabalhar." },
+              { icon: Bike, title: "Ganhos flexíveis", desc: "Entregadores escolhem quando e quanto querem trabalhar." },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -177,13 +177,13 @@ const Index = () => {
               <Link to="/signup?type=restaurant">
                 <Button size="lg" variant="secondary" className="gap-2 text-base px-8">
                   <Store className="w-5 h-5" />
-                  Cadastrar Restaurante
+                  Cadastrar Empresa
                 </Button>
               </Link>
               <Link to="/signup?type=motoboy">
                 <Button size="lg" variant="secondary" className="gap-2 text-base px-8">
                   <Bike className="w-5 h-5" />
-                  Cadastrar Motoboy
+                  Cadastrar Entregador
                 </Button>
               </Link>
             </div>

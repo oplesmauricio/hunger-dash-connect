@@ -74,7 +74,7 @@ const MotoboyDashboard = () => {
       toast({ title: "Erro ao aceitar", description: error.message, variant: "destructive" });
       return;
     }
-    toast({ title: "Entrega aceita!", description: "Dirija-se ao restaurante para coletar." });
+    toast({ title: "Entrega aceita!", description: "Dirija-se ao local de coleta para coletar." });
     navigate(`/delivery/${id}`);
   };
 
@@ -100,7 +100,7 @@ const MotoboyDashboard = () => {
             </div>
             <div>
               <span className="font-bold text-foreground" style={{ fontFamily: 'Space Grotesk' }}>Motiggo</span>
-              <span className="text-xs text-muted-foreground ml-2 bg-muted px-2 py-0.5 rounded-full">Motoboy</span>
+              <span className="text-xs text-muted-foreground ml-2 bg-muted px-2 py-0.5 rounded-full">Entregador</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -108,7 +108,7 @@ const MotoboyDashboard = () => {
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                 <Bike className="w-4 h-4 text-primary" />
               </div>
-              <span className="text-sm font-medium text-foreground hidden sm:block">{profile?.name || "Motoboy"}</span>
+              <span className="text-sm font-medium text-foreground hidden sm:block">{profile?.name || "Entregador"}</span>
             </div>
             <Button variant="ghost" size="icon" onClick={handleSignOut}>
               <LogOut className="w-4 h-4" />

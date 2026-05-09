@@ -181,7 +181,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/signup?type=motoboy">
-                <Button size="lg" variant="outline" className="gap-2 text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="secondary" className="gap-2 text-base px-8">
                   <Bike className="w-5 h-5" />
                   Cadastrar Motoboy
                 </Button>

@@ -21,7 +21,7 @@ interface Delivery {
   motoboy_profile?: { name: string } | null;
 }
 
-const RestaurantDashboard = () => {
+const EmpresaDashboard = () => {
   const navigate = useNavigate();
   const { profile, signOut } = useAuth();
   const [deliveries, setDeliveries] = useState<Delivery[]>([]);
@@ -164,4 +164,4 @@ const RestaurantDashboard = () => {
   );
 };
 
-export default RestaurantDashboard;
+export default EmpresaDashboard;

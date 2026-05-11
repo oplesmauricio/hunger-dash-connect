@@ -8,8 +8,8 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import RestaurantDashboard from "./pages/RestaurantDashboard";
-import MotoboyDashboard from "./pages/MotoboyDashboard";
+import EmpresaDashboard from "./pages/EmpresaDashboard";
+import EntregadorDashboard from "./pages/EntregadorDashboard";
 import NewDelivery from "./pages/NewDelivery";
 import DeliveryDetail from "./pages/DeliveryDetail";
 import NotFound from "./pages/NotFound";
@@ -36,9 +36,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<AuthRedirect><Login /></AuthRedirect>} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/restaurant" element={<ProtectedRoute requiredType="restaurant"><RestaurantDashboard /></ProtectedRoute>} />
+            <Route path="/restaurant" element={<ProtectedRoute requiredType="restaurant"><EmpresaDashboard /></ProtectedRoute>} />
             <Route path="/restaurant/new-delivery" element={<ProtectedRoute requiredType="restaurant"><NewDelivery /></ProtectedRoute>} />
-            <Route path="/motoboy" element={<ProtectedRoute requiredType="motoboy"><MotoboyDashboard /></ProtectedRoute>} />
+            <Route path="/motoboy" element={<ProtectedRoute requiredType="motoboy"><EntregadorDashboard /></ProtectedRoute>} />
             <Route path="/delivery/:id" element={<ProtectedRoute><DeliveryDetail /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>

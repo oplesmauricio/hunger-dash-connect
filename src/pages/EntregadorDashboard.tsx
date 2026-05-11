@@ -27,7 +27,7 @@ interface Delivery {
   restaurant_profile?: { name: string } | null;
 }
 
-const MotoboyDashboard = () => {
+const EntregadorDashboard = () => {
   const navigate = useNavigate();
   const { profile, user, signOut } = useAuth();
   const { toast } = useToast();
@@ -228,4 +228,4 @@ const MotoboyDashboard = () => {
   );
 };
 
-export default MotoboyDashboard;
+export default EntregadorDashboard;
